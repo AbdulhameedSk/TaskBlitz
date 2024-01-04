@@ -37,7 +37,7 @@ app.put("/completed",async(req,res)=>{
         res.status(411).json({msg:"Invalid Inputs"})
         return;
     }
-    await todo.update({
+    await todo.updateOne({
         _id:req.body.id
     },{
         completed:true
@@ -46,3 +46,5 @@ app.put("/completed",async(req,res)=>{
         msg:"COMPLETED"
     })
 })
+
+app.listen(3000);
