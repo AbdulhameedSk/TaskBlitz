@@ -1,8 +1,10 @@
 const express = require('express');
 const {create}=require("./types");
 const {todo}=require("./db.js")
+const cors = require('cors');
 const app=express();
 app.use(express.json());
+app.use(cors());
 
 app.post("/todos",async(req,res)=>{
     const task=req.body;
