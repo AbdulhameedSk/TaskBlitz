@@ -43,6 +43,6 @@ app.put("/completed",async(req,res)=>{
         completed:true
     })
     res.json({
-        msg:"COMPLETED";
+        msg:"COMPLETED"
     })
 })
