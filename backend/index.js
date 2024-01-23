@@ -1,11 +1,12 @@
 const express = require("express");
 const { create } = require("./types");
 const { todo } = require("./db.js");
+const path = require("path");
 const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, "public")));
 app.post("/todos", async (req, res) => {
   const task = req.body;
   const check = create.safeParse(task);
@@ -35,6 +36,7 @@ app.get("/todos", async (req, res) => {
     tod,
   });
   console.log(express.request.body);
+   
 });
 
 app.put("/completed", async (req, res) => {
@@ -56,5 +58,7 @@ app.put("/completed", async (req, res) => {
     msg: "COMPLETED",
   });
 });
+
+
 
 app.listen(3000);
